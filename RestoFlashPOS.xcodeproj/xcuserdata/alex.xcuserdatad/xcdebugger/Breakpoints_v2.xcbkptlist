@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "6C2CE285-CBE7-4CC4-BC2F-6BB41C624147"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08FD9F09-B01D-4229-A614-0A5783B1E4B4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlash/ui/preview/SwiftUIView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "makeUIViewController(context:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BAAD420-0122-4D59-98C8-98724843C167"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlash/ui/RestoFlashPaymentController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "PaymentController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5D15AFC5-9C02-4385-A7B1-409BF2E0E4F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlash/ui/RestoFlashPaymentController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97EF81B3-77CE-4EA2-933D-2EEB4EE96EA9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlash/ui/RestoFlashPaymentController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "97EF81B3-77CE-4EA2-933D-2EEB4EE96EA9 - db0cd6d8014d3617"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.PaymentController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/ui/RestoFlashPaymentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  uuid = "97EF81B3-77CE-4EA2-933D-2EEB4EE96EA9 - db0cd6d8014d3617"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.PaymentController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/ui/RestoFlashPaymentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ECCC212D-5308-4B58-B408-6043A7739204"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlash/ui/RestoFlashPaymentController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "PaymentController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "ECCC212D-5308-4B58-B408-6043A7739204 - f4870faa3e1e0d35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.PaymentController.viewDidLoad() -&gt; ()"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/ui/RestoFlashPaymentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "ECCC212D-5308-4B58-B408-6043A7739204 - f4870faa3e1e0d35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.PaymentController.viewDidLoad() -&gt; ()"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/ui/RestoFlashPaymentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "ECCC212D-5308-4B58-B408-6043A7739204 - 592a557194bb56a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.PaymentController.tableView.getter : __C.UITableView"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/ui/RestoFlashPaymentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "ECCC212D-5308-4B58-B408-6043A7739204 - e4f1a398f5922746"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.PaymentController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; RestoFlash.PaymentController"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/ui/RestoFlashPaymentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "ECCC212D-5308-4B58-B408-6043A7739204 - b5fb66d2251ba181"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.PaymentController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;RestoFlash.PaymentController&gt;"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/ui/RestoFlashPaymentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64160FA5-3A5B-4C53-801D-A748070A539E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlash/ui/RestoFlashPaymentController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "PaymentCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "64160FA5-3A5B-4C53-801D-A748070A539E - 50fc74fd8c8eb754"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.PaymentCell.setToken(RestoFlash.Token) -&gt; ()"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/ui/RestoFlashPaymentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "64160FA5-3A5B-4C53-801D-A748070A539E - 50fc74fd8c8eb896"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.PaymentCell.setToken(RestoFlash.Token) -&gt; ()"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/ui/RestoFlashPaymentController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5CEB86AD-AE4B-4A43-AE1A-F37A57D4EEF8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlash/ui/RestoFlashPaymentController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "init?(coder:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75FCEC2F-0DE0-4955-8A7A-B3E73DF85B7F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlash/webclient/Api.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "initDevice(with:etablissement:devicePassword:result:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "75FCEC2F-0DE0-4955-8A7A-B3E73DF85B7F - 15af839947beaded"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.RestoFlashClient.initDevice(with: RestoFlash.EditorInfo, etablissement: RestoFlash.Etablissement, posCredentials: RestoFlash.Credentials, result: (RestoFlash.ApiResult&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/webclient/Api.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "75FCEC2F-0DE0-4955-8A7A-B3E73DF85B7F - 15af839947beaded"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlash.RestoFlashClient.initDevice(with: RestoFlash.EditorInfo, etablissement: RestoFlash.Etablissement, posCredentials: RestoFlash.Credentials, result: (RestoFlash.ApiResult&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RestoFlash"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlash/RestoFlash/webclient/Api.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "75FCEC2F-0DE0-4955-8A7A-B3E73DF85B7F - c6d8e33b49721342"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlashPOS.RestoFlashClient.initDevice(with: RestoFlashPOS.EditorInfo, etablissement: RestoFlashPOS.Etablissement, posCredentials: RestoFlashPOS.Credentials, result: (RestoFlashPOS.ApiResult&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RestoFlashPOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlashFramework/RestoFlash/webclient/Api.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "75FCEC2F-0DE0-4955-8A7A-B3E73DF85B7F - f6e86290f8421dc6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestoFlashPOS.RestoFlashClient.initDevice(with: RestoFlashPOS.EditorInfo, etablissement: RestoFlashPOS.Etablissement, posCredentials: RestoFlashPOS.Credentials, result: (RestoFlashPOS.ApiResult&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "RestoFlashPOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alex/dev/octoplus/iosapi/RestoFlashPOS/RestoFlash/webclient/Api.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "148">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4543E673-5203-488A-B6F7-CEDBC730CDD9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlashTests/RestoFlashTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "testExample()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1101E741-6A69-48C3-9C83-E43C662A9611"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestoFlashTests/RestoFlashClientTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "testInitDevice()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
