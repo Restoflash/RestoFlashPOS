@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   spec.version      = "1.0.0"
   spec.summary      = "Resto Flash payment integration for Points of Sale"
   spec.homepage     = "https://www.restoflash.fr"
-  spec.license      = { :type => "MIT", :file => "LICENSE.txt" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = { "Alexis Contour" => "alexis.contour@gmail.com" }
   spec.source       = { :git => "https://github.com/Restoflash/RestoFlashPOS.git", :tag => "#{spec.version}" }
   spec.ios.deployment_target = '13.0'
