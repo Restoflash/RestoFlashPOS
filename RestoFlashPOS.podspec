@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "RestoFlashPOS"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "Resto Flash payment integration for Points of Sale"
   spec.homepage     = "https://www.restoflash.fr"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
