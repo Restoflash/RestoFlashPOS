@@ -14,10 +14,10 @@ public struct GroupedPayments {
     var payments : [Payment] = []
 }
 
-open class PaymentsViewModel{
+class PaymentsViewModel{
 
     
-    let askedAmount : Money<EUR>
+    let askedAmount : Money<EUR>?
     let ticketReference : String
     var retrievedPayments : [Payment] = []
     var manualPayments : [Payment] = []
@@ -32,7 +32,7 @@ open class PaymentsViewModel{
     var dontAutoDownload : Bool = false
 
     
-    public init(with askedAmount : Money<EUR>, ticketReference:String,  retrievedTokens : [Token]){
+    public init(with askedAmount : Money<EUR>?, ticketReference:String,  retrievedTokens : [Token]){
         self.askedAmount = askedAmount
         self.ticketReference = ticketReference
         for token in retrievedTokens {
@@ -71,9 +71,10 @@ open class PaymentsViewModel{
         }
     }
 
-    var remainigAmount : Money<EUR> {
+    var remainigAmount : Money<EUR>? {
         get {
-            askedAmount - selectedAmount
+            guard let askedAmount = self.askedAmount else {return nil }
+            return askedAmount - selectedAmount
         }
     }
     

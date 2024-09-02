@@ -16,7 +16,7 @@ public struct RestoFlashOptions
     public var mockServerResponse = false
     public var customizeConfiguration : ((URLSessionConfiguration) -> ())? = nil
 
-    init( networkRequestTimeout : TimeInterval = 5.0 , retryNetworkRequestCount: UInt = 2){
+    init( networkRequestTimeout : TimeInterval = 8.0 , retryNetworkRequestCount: UInt = 2){
         self.networkRequestTimeout = networkRequestTimeout
         self.retryNetworkRequestCount = retryNetworkRequestCount
     }

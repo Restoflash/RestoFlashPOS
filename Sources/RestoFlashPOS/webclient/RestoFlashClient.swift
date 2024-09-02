@@ -6,15 +6,16 @@
 //
 
 import Foundation
-import Alamofire
+
+
 //import Mocker
 
-public class Credentials : Codable
+open class Credentials : Codable
 {
-    let login : String
-    let password : String
+    public let login : String
+    public let password : String
     
-    init(login : String, password : String)
+    public init(login : String, password : String)
     {
         self.login = login
         self.password = password
@@ -63,9 +64,10 @@ class RestoFlashClient
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = options.networkRequestTimeout
         configuration.timeoutIntervalForResource = options.networkRequestTimeout
+        configuration.urlCache = nil
         options.customizeConfiguration?(configuration)
         //, interceptor: RetryPolicy(retryLimit:options.retryNetworkRequestCount)
-        return Alamofire.Session(configuration: configuration)
+        return Session(configuration: configuration)
     }
     
    
@@ -77,7 +79,7 @@ class RestoFlashClient
     }
     
 
-    func request<T: Codable>(with method : HTTPMethod, service : String, parameters : Codable?, result : @escaping(Completion<T>))
+    func request<T: Codable>(with method : HTTPMethod, service : String, parameters : Codable?, result : @escaping((ApiResult<T>) -> Void))
     {
         let url : URLConvertible = self.endpoint.url.appendingPathComponent(service)
      //   let credential = URLCredential(user: self.credential.login, password: self.credential.password, persistence: URLCredential.Persistence.none)
@@ -117,7 +119,7 @@ extension DataRequest {
                                                 decoder: DataDecoder = JSONDecoder(),
                                                 emptyResponseCodes: Set<Int> = DecodableResponseSerializer<T>.defaultEmptyResponseCodes,
                                                 emptyRequestMethods: Set<HTTPMethod> = DecodableResponseSerializer<T>.defaultEmptyRequestMethods,
-                                                completionHandler: @escaping (Completion<T>)) -> Self {
+                                                completionHandler: @escaping (ApiResult<T>) -> Void) -> Self {
         
         
         let handler : (AFDataResponse<ApiResponse<T>>) -> Void = { afResponse in
@@ -130,7 +132,7 @@ extension DataRequest {
                     }
                     else
                     {
-                        completionHandler(.failure(.unexpected(error: "status = 0 but empty result")))
+                        completionHandler(.failure(.unexpected(error: RFMessageError(message: "status = 0 but empty result"))))
                     }
                 }
                 else
@@ -139,14 +141,14 @@ extension DataRequest {
                     if (apiResponse.msg == "FUNCTIONAL_ERROR") {
                         
                         guard let apiErrorResponse = try? JSONDecoder().decode(ApiResponse<ApiError>.self, from: afResponse.data!), let apiError = apiErrorResponse.result else  {
-                            completionHandler(.failure(RequestError.unexpected(error: "FUNCTIONAL_ERROR found but no api error")))
+                            completionHandler(.failure(RequestError.unexpected(error: RFMessageError(message: "FUNCTIONAL_ERROR found but no api error"))))
                             return
                         }
                         
                         completionHandler(.failure(RequestError.api(error: apiError)))
                     }
                     else {
-                        completionHandler(.failure(RequestError.unexpected(error:apiResponse.msg)))
+                        completionHandler(.failure(RequestError.unexpected(error:RFMessageError(message: apiResponse.msg))))
                     }
                     
                 }

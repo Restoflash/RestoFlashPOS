@@ -16,10 +16,11 @@ public enum PaymentResult{
 
 
 public struct PaymentSummary {
-    public let askedAmount : Money<EUR>
+    public let askedAmount : Money<EUR>?
     public let paidAmount : Money<EUR>
     public let payments : [Payment]
     public var remainingAmount : Money<EUR> {
+        guard let askedAmount = askedAmount else { return 0 }
         return askedAmount - paidAmount
     }
     public var hasError : Bool {
@@ -40,7 +41,7 @@ public struct PaymentSummary {
         }
     }
     
-    init(with askedAmount : Money<EUR>, payments : [Payment]){
+    init(with askedAmount : Money<EUR>?, payments : [Payment]){
         self.askedAmount = askedAmount
         self.payments = payments
         var totalAmount : Money<EUR> = 0.0

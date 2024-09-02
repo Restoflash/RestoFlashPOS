@@ -85,9 +85,9 @@ public enum Token  {
         switch self
         {
         case .qrCode(qrCode: let qrCode):
-            return try! qrCode.fullToken.urlBase64()
+            return qrCode.fullToken.urlBase64()
         case .checkout(checkout: let checkout):
-            return try! checkout.sponsorshipKey.urlBase64()
+            return checkout.sponsorshipKey.urlBase64()
         }
     }
     public var displayKey : String {

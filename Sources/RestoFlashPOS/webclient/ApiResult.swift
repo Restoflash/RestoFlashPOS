@@ -11,5 +11,3 @@ public enum ApiResult<T> {
     case success(T)
     case failure(RequestError)
 }
-
-public typealias Completion<T>  = (ApiResult<T>) -> Void

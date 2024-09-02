@@ -12,7 +12,7 @@ public let checkouts_list_data = """
 {
     "id": 1,
     "userName": "John Doe",
-    "date": 1573662324368,
+    "date": \(Int64(Date().timeIntervalSince1970 - 3600 )*1000),
     "amount": 12.20,
     "reference": "TABLE 11",
     "sponsorshipKey": "1234",

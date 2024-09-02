@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol PaymentCellDelegate: AnyObject {
+public protocol PaymentCellDelegate: AnyObject {
     func didSelectPayment(_ payments: Payment)
     func didDeselectPayment(_ payments: Payment)
     func didSelectGroup(_ group : GroupedPayments, section : Int)

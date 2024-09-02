@@ -7,7 +7,6 @@
 
 import Foundation
 
-import Alamofire
 
 public enum RequestError : Error{
     case http(error : AFError) // cannot reach server
@@ -44,6 +43,7 @@ enum ErrorCode: Int, Codable {
     case wrongKey = 2000 //  Code SCO, QR ou autre incorrect. ( inclus les cas de double présentation, inconnu, faux etc)
     case wrongAffiliate = 2001 // Pour les modes où le benef choisit le restau et se trompe
     case lowBalance = 2002 // Pas de solde pour couvrir la demande ( en partial ou alors si plus de solde du tout )
+    
     var id: Int {
         return self.rawValue
     }
@@ -63,6 +63,19 @@ public struct ApiError: Codable, LocalizedError {
     }
 }
 
+
+
+public struct RFMessageError : LocalizedError
+{
+    let message : String
+    public var errorDescription: String? {
+        return message
+    }
+    public var  failureReason: String? {
+        return message
+    }
+}
+/*
 extension String : LocalizedError
 {
     public var errorDescription: String? {
@@ -72,3 +85,4 @@ extension String : LocalizedError
         return self
     }
 }
+*/

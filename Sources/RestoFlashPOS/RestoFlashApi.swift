@@ -8,7 +8,12 @@
 import Foundation
 import Disk
 
-public class RestoFlashApi {
+func initializeRestoFlash(with editorInfo : EditorInfo){
+    
+}
+
+
+open class RestoFlashApi {
 
     let editorInfo: EditorInfo
     var standardApiClient: RestoFlashClient? = nil
@@ -17,6 +22,7 @@ public class RestoFlashApi {
     let options: RestoFlashOptions
 
     public init(with editorInfo: EditorInfo, endpoint: EndPoint, options: RestoFlashOptions = RestoFlashOptions.defaultOptions) {
+        loadRFFonts()
         let savedEditorInfo = try? Disk.retrieve(resourceNames.editodInfo.rawValue, from: .applicationSupport, as: EditorInfo.self)
         if editorInfo != savedEditorInfo {
             try? RestoFlashApi.deletePOSCredentials()
@@ -34,7 +40,7 @@ public class RestoFlashApi {
         return RestoFlashApi.loadPOSCredentials() != nil
     }
 
-    func registerPOS(etablissement: Etablissement, posPassword: DevicePassword = DevicePassword.automatic(), completion: @escaping (Completion<Credentials>)) {
+    func registerPOS(etablissement: Etablissement, posPassword: DevicePassword = DevicePassword.automatic(), completion: @escaping ((ApiResult<Credentials>) -> ())) {
         let editorCredentials = editorInfo.credentials
         editorClient = RestoFlashClient(endpoint: self.endpoint, credential: editorCredentials, options: self.options)
         editorClient!.initDevice(with: editorInfo, etablissement: etablissement, devicePassword: posPassword) { result in
@@ -57,12 +63,13 @@ public class RestoFlashApi {
         }
     }
     
-    func downloadCheckouts(result: @escaping(Completion<[Checkout]>)){
+    func downloadCheckouts(result: @escaping ((ApiResult<[Checkout]>) -> Void)){
         self.standardApiClient?.checkoutsToValidate(with: self.editorInfo, result: result)
     }
 
 
-    func processPayment(receiptReference: String, token: Token, result: @escaping(Completion<Transaction>)) {
+    func processPayment(receiptReference: String, token: Token, result: @escaping ((ApiResult<Transaction>) -> Void)) {
+        //log
         print("processPayment receiptReference:\(receiptReference) token:\(token) from \(token.userName) with amount \(token.amount)")
         standardApiClient?.processPayment(with: editorInfo, receiptReference: receiptReference, token: token, result: result)
      
@@ -70,8 +77,9 @@ public class RestoFlashApi {
 }
 
 
-extension RestoFlashApi {
-    public enum resourceNames : String {
+//save/load
+public extension RestoFlashApi {
+     enum resourceNames : String {
         case editodInfo = "rf_editorInfo"
         case posCredentials = "rf_posCredentials"
         case etablissement = "rf_etablissement"
@@ -98,5 +106,12 @@ extension RestoFlashApi {
     }
     static func saveEtablissement(_ etablissement : Etablissement) throws {
         try Disk.save(etablissement, to: .applicationSupport, as: resourceNames.etablissement.rawValue)
+    }
+    
+    static func deleteEtablissement() throws {
+        try Disk.remove(resourceNames.etablissement.rawValue, from: .applicationSupport)
+    }
+    static func deleteEditorInfo() throws {
+        try Disk.remove(resourceNames.editodInfo.rawValue, from: .applicationSupport)
     }
 }

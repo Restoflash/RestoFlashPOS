@@ -1,24 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "alamofire",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Alamofire/Alamofire",
-      "state" : {
-        "revision" : "bc268c28fb170f494de9e9927c371b8342979ece",
-        "version" : "5.7.1"
-      }
-    },
-    {
-      "identity" : "datehelper",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/melvitax/DateHelper",
-      "state" : {
-        "revision" : "76d0840daab7288fc99b04a4c23d504f0394e083",
-        "version" : "5.0.1"
-      }
-    },
-    {
       "identity" : "disk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/saoudrizwan/Disk",
@@ -55,21 +37,21 @@
       }
     },
     {
-      "identity" : "pkhud",
+      "identity" : "progresshud",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pkluz/PKHUD.git",
+      "location" : "https://github.com/relatedcode/ProgressHUD",
       "state" : {
-        "revision" : "8fd26f23057c6bebd6695524b1c3e05e93aba571",
-        "version" : "5.4.0"
+        "revision" : "5a7e1ba99652f429eb3bf60de0558cacc5c384be",
+        "version" : "14.1.0"
       }
     },
     {
-      "identity" : "simplecheckbox",
+      "identity" : "swiftdate",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/BeauNouvelle/SimpleCheckbox",
+      "location" : "https://github.com/malcommac/SwiftDate",
       "state" : {
-        "revision" : "96cf25c98bd8e595018df6a2466a9a1eb348fdb8",
-        "version" : "2.3.0"
+        "revision" : "5d943224c3bb173e6ecf27295611615eba90c80e",
+        "version" : "7.0.0"
       }
     }
   ],

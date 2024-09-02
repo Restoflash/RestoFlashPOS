@@ -10,7 +10,8 @@ import Foundation
 
 extension RestoFlashClient
 {
-    func initDevice(with editorInfo : EditorInfo, etablissement : Etablissement, devicePassword : DevicePassword, result : @escaping(Completion<String>)){
+    
+    func initDevice(with editorInfo : EditorInfo, etablissement : Etablissement, devicePassword : DevicePassword, result : @escaping((ApiResult<String>) -> Void)){
         let service = "/editor/\(editorInfo.editorLogin)/device/init"
         let params = InitDeviceParameters(siret:etablissement.siret,
                                           name: etablissement.name,
@@ -20,8 +21,36 @@ extension RestoFlashClient
         self.request(with:.post, service:service, parameters: params, result:result)
     }
     
+    
+    /*
+     
+     //java
+     private PaymentParameter createPaymentParameterFromConfig(String basketReference, BigDecimal amountToPay, String token,
+                                                                  long timestampInMs, boolean acceptPartial) {
+            PaymentParameter paymentParameter = new PaymentParameter();
+            paymentParameter.setAmount(amountToPay);
+            paymentParameter.setEncodedToken(Base64.encodeToutf8StringUrlSafeNoWrap(token));
+            paymentParameter.setAcceptPartial(acceptPartial);
+            paymentParameter.setTimestampInMsUTC(timestampInMs);
+            paymentParameter.setActivityTime(timestampInMs);
+            paymentParameter.setEncodedImei(encodedImei);
 
-    func processPayment(with editor : EditorInfo, receiptReference : String,  token : Token, result : @escaping(Completion<Transaction>)){
+            String encodedReference = Base64.encodeToutf8StringUrlSafeNoWrap(basketReference);
+            String dataToSign = Divers.buildSignedData(imei, basketReference, String.valueOf(timestampInMs),
+                    Divers.toCents(amountToPay));
+
+            paymentParameter.setEncodedReference(encodedReference);
+            paymentParameter.setEncodedSignature(sign(dataToSign));
+
+            return paymentParameter;
+        }
+     @POST("/pay/process/{editorId}.json")
+     void processPayment(@Path(value = "editorId", encode = false) String editorId,
+                                             @Body PaymentParameter paymentParameter,Callback<ApiResponse<Transaction>> responseCallback);
+
+
+     */
+    func processPayment(with editor : EditorInfo, receiptReference : String,  token : Token, result : @escaping((ApiResult<Transaction>) -> Void)){
         let service = "/pay/process/\(editor.editorLogin)"
         let paymentParameter = PaymentParameter(
             encodedToken: token.paymentKeyEncoded,
@@ -36,6 +65,13 @@ extension RestoFlashClient
         self.request(with:.post, service:service, parameters: paymentParameter, result:result)
     }
     
+    /*
+     @GET("/checkouts/{editorId}/{encodedImei}.json")
+         void checkoutsToValidate(@Path(value = "editorId", encode = false) String editorId,
+                                  @Path(value = "encodedImei", encode = false) String encodedImei,
+                                            Callback<ApiResponse<List<Checkout>>> responseCallback);
+     */
+
     func checkoutsToValidate(with editor : EditorInfo, result : @escaping((ApiResult<[Checkout]>) -> Void)) {
         let service = "/checkouts/\(editor.editorLogin)/\(editor.editorIMEI)"
         self.request(with: .get, service: service, parameters: nil, result: result)

@@ -37,13 +37,13 @@ extension EditorInfo
         return try fromJSON(json: data)
     }
     public static func fromJSON(jsonName : String) throws -> EditorInfo {
-        guard let resourcePath = Bundle.main.path(forResource: jsonName, ofType: "json") else {throw "cannot find resource \(jsonName).json"}
-        guard let data = FileManager.default.contents(atPath: resourcePath) else {throw "cannot read resource \(jsonName).json"}
+        guard let resourcePath = Bundle.main.path(forResource: jsonName, ofType: "json") else {throw RFMessageError(message: "cannot find resource \(jsonName).json")}
+        guard let data = FileManager.default.contents(atPath: resourcePath) else {throw RFMessageError(message: "cannot read resource \(jsonName).json")}
         return try fromJSON(json: data)
     }
     public static func fromPlist(plistName : String) throws -> EditorInfo {
-        guard let resourcePath = Bundle.main.path(forResource: plistName, ofType: "plist") else {throw "cannot find resource \(plistName).plist"}
-        guard let data = FileManager.default.contents(atPath: resourcePath) else {throw "cannot read resource \(plistName).plist"}
+        guard let resourcePath = Bundle.main.path(forResource: plistName, ofType: "plist") else {throw RFMessageError(message: "cannot find resource \(plistName).plist")}
+        guard let data = FileManager.default.contents(atPath: resourcePath) else {throw RFMessageError(message: "cannot read resource \(plistName).plist")}
         return try PropertyListDecoder().decode(EditorInfo.self, from: data)
     }
 }
@@ -61,37 +61,52 @@ extension EditorInfo : Equatable
 
 public typealias Siret = String
 
-protocol EtablissementInfo {}
 
-public struct Etablissement : EtablissementInfo, Equatable, Codable {
-    let siret : Siret
-    let name: String
-    let phone : String
+public struct Etablissement : Equatable, Codable {
+    public var siret : Siret
+    public var address: Address
+    public var affiliateId : Int?
+    public var name : String {
+        get {
+            return address.name
+        }
+    }
+    
+    public var phone : String {
+        get {
+            return address.phone
+        }
+    }
+    
+    
     public static func ==(lhs: Etablissement, rhs: Etablissement) -> Bool {
         return lhs.siret == rhs.siret &&
-               lhs.name == rhs.name &&
-               lhs.phone == rhs.phone
+               lhs.address == rhs.address &&
+               lhs.affiliateId == rhs.affiliateId
     }
+    
     public init(siret : Siret, name:String="", phone:String="") {
         self.siret = siret
-        self.name = name
-        self.phone = phone
+        var address = Address()
+        self.affiliateId = nil
+        address.name = name
+        address.phone = phone
+        self.address = address
     }
 }
 
 
-struct Address:EtablissementInfo, Equatable, Codable {
+public struct Address: Equatable, Codable {
+    public var name: String
+    public var phone: String
+    public var addressNumber: String
+    public var addressStreet: String
+    public var zipCode: String
+    public var town: String
+    public var webSite: String
+    public var email: String
     
-    let name: String
-    let addressNumber: String
-    let addressStreet: String
-    let zipCode: String
-    let town: String
-    let phone: String
-    let webSite: String
-    let email: String
-    
-    static func ==(lhs: Address, rhs: Address) -> Bool {
+    public static func ==(lhs: Address, rhs: Address) -> Bool {
         return lhs.name == rhs.name &&
         lhs.addressNumber == rhs.addressNumber &&
         lhs.addressStreet == rhs.addressStreet &&
@@ -102,6 +117,17 @@ struct Address:EtablissementInfo, Equatable, Codable {
         lhs.email == rhs.email
     }
 
+    init() {
+        self.name = ""
+        self.addressNumber = ""
+        self.addressStreet = ""
+        self.zipCode = ""
+        self.town = ""
+        self.phone =  ""
+        self.webSite = ""
+        self.email = ""
+    }
+    
     init(name:String, addressNumber:String?, addressStreet:String?, zipCode:String?, town:String?, phone:String?, webSite:String?, email:String?) {
         self.name = name
         self.addressNumber = addressNumber ?? ""

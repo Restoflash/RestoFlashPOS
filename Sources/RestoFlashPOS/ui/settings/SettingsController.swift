@@ -11,9 +11,9 @@ import SwiftUI
 public class SettingsController: FormViewController {
     var api : RestoFlashApi!
     var etablissement : Etablissement!
-    var completion : Completion<Credentials>!
+    var completion : ((ApiResult<Credentials>) -> ())!
 
-    public init(api:RestoFlashApi, etablissement_prefill : Etablissement, completion : @escaping(Completion<Credentials>)) {
+    public init(api:RestoFlashApi, etablissement_prefill : Etablissement, completion : @escaping((ApiResult<Credentials>)->())) {
         super.init(style: .grouped)
         self.modalPresentationStyle = .formSheet
         self.title = "Enregistrer un point de vente"
@@ -38,9 +38,7 @@ public class SettingsController: FormViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            overrideUserInterfaceStyle = .light
-        }
+        overrideUserInterfaceStyle = .light
         form +++ Section() {
             $0.header = HeaderFooterView<UIToolbar>(
                 .callback {
@@ -169,12 +167,27 @@ public class SettingsController: FormViewController {
         
     }
 }
+// wrap for swiftUI preview
 
+struct SettingsController_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsController(api:RestoFlashApi(with: EditorInfo(editorLogin: "a", editorPassword: "b", editorIMEI: "c", issuerId:"d"), endpoint: .test), etablissement_prefill:Etablissement(siret: "1234", name: "Alex"), completion:  { result in } ).toPreview()
+    }
+}
+extension UIViewController {
+    func toPreview() -> some View {
+
+            Preview(viewController: self)
+           
+    }
+}
 
 class HeaderView : UIToolbar
 {
     override init(frame:CGRect){
         super.init(frame: frame)
+        //set width to screen width and height to 44
+        
     }
     
     required init?(coder: NSCoder) {
@@ -182,4 +195,16 @@ class HeaderView : UIToolbar
     }
 }
 
+struct Preview : UIViewControllerRepresentable {
+    let viewController : UIViewController
+    init(viewController : UIViewController) {
+        self.viewController = viewController
+    }
+    func makeUIViewController(context: Context) -> UIViewController {
+        return viewController
+    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
 
+    }
+    typealias UIViewControllerType = UIViewController
+}
