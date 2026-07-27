@@ -187,6 +187,18 @@ class PaymentCell: UITableViewCell {
         usernameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         usernameLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
+        // Identifiants stables E2E (miroir des ids du SDK Android fr.restoflash.ui) — ciblés par
+        // iphone_ben/RestoFlashUITests/.../PaymentReceptionRobot. Aucun impact fonctionnel/visuel.
+        // card_container : la carte cliquable = la ligne ; payment_key : le code du checkout
+        // (vide pour un QR, cf. Token.displayKey) ; l'état de sélection et le type de token sont
+        // exposés en accessibilityValue par setPayment (le checkbox n'est pas interactif).
+        containerView.accessibilityIdentifier = "card_container"
+        checkbox.accessibilityIdentifier = "checkbox"
+        checkbox.isAccessibilityElement = true
+        amountLabel.accessibilityIdentifier = "amount"
+        sponsorshipKeyLabel.accessibilityIdentifier = "payment_key"
+        usernameLabel.accessibilityIdentifier = "name"
+
        // sponsorshipKeyLabel.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
        // usernameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
 
@@ -222,6 +234,11 @@ class PaymentCell: UITableViewCell {
         self.checkbox.isChecked=isChecked
         setSelectionBorder()
         self.sponsorshipKeyLabel.text = payment.token.displayKey
+
+        // État exposé aux tests E2E (le checkbox n'étant pas interactif, on reflète la sélection ;
+        // le type distingue la ligne QR — payment_key vide — de la ligne CHECKOUT). Sans impact UI.
+        self.checkbox.accessibilityValue = isChecked ? "checked" : "unchecked"
+        self.containerView.accessibilityValue = payment.token.tokenType.rawValue   // "QRCODE" | "CHECKOUT"
     }
     
     func setSelectionBorder()

@@ -223,6 +223,9 @@ open class PaymentController : UIViewController, UITableViewDataSource, UITableV
         mainView = UIView()
         self.mainView.backgroundColor = .white
         tableView = UITableView(frame: CGRectZero, style: .insetGrouped)
+        // Identifiant stable E2E (miroir de fr.restoflash.ui.R.id.payments_list Android) — voir
+        // iphone_ben/RestoFlashUITests/.../PaymentReceptionRobot. Aucun impact fonctionnel/visuel.
+        tableView.accessibilityIdentifier = "payments_list"
         tableView.separatorStyle = .none
         tableView.separatorColor = .clear
 
@@ -242,7 +245,10 @@ open class PaymentController : UIViewController, UITableViewDataSource, UITableV
         infoLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
         updateInfoLabel()
         payButton = UIButton()
-        
+        // Identifiant stable E2E (miroir de fr.restoflash.ui confirm_button Android) : bouton
+        // « Encaisser … », masqué tant que rien n'est sélectionné (cf. updatePayButton).
+        payButton.accessibilityIdentifier = "confirm_button"
+
         view.addSubview(progressView)
         //center progress view in parent
         progressView.translatesAutoresizingMaskIntoConstraints = false
@@ -259,6 +265,9 @@ open class PaymentController : UIViewController, UITableViewDataSource, UITableV
             if self.navigationController != nil
             {
                 let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(self.refreshButton))
+                // Identifiant stable E2E (miroir de fr.restoflash.ui.R.id.menu_item_resync Android) :
+                // rafraîchit la liste des paiements en attente depuis le BO.
+                refreshButton.accessibilityIdentifier = "menu_item_resync"
                 self.navigationItem.rightBarButtonItems = [refreshButton]
             }
             else{
